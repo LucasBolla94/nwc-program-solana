@@ -13,7 +13,7 @@ pub struct UpdateRate<'info> {
     pub owner: AccountInfo<'info>,
 }
 
-pub fn handler(ctx: Context<UpdateRate>, new_rate: u64) -> Result<()> {
+pub fn update_rate_handler(ctx: Context<UpdateRate>, new_rate: u64) -> Result<()> {
     let config = &mut ctx.accounts.config;
 
     // Atualize o Rate com o novo Valor

@@ -32,6 +32,14 @@ pub mod nwc {
 
     // Atualiza o rate ( Somente o Owner pode fazer )
     pub fn update_rate(ctx: Context<UpdateRate>, new_rate: u64) -> Result<()> {
-        instructions::update_rate::handler(ctx, new_rate)
+        instructions::update_rate::update_rate_handler(ctx, new_rate)
+    }
+
+    pub fn set_paused(ctx: Context<SetPaused>, paused: bool) -> Result<()> {
+        instructions::pause::pause_handler(ctx, paused)
+    }
+
+    pub fn vault_withdraw(ctx: Context<VaultWithdraw>) -> Result<()> {
+        instructions::vault_withdraw::vault_withdraw_handler(ctx)
     }
 }
